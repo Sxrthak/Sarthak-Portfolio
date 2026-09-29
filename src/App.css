@@ -372,13 +372,13 @@ body.has-custom-cursor [data-cursor] { cursor: none; }
   margin: 26px 0 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: clamp(2.6rem, 8.5vw, 6.4rem);
-  line-height: 0.98;
+  font-size: clamp(2.4rem, 6.2vw, 4.8rem);
+  line-height: 1.02;
   letter-spacing: -0.03em;
-  max-width: 15ch;
 }
 .hero-word { display: inline-block; perspective: 600px; margin-right: 0.26em; }
 .hero-word > span { display: inline-block; transform-origin: bottom; }
+@media (max-width: 899px) { .hero-br { display: none; } }
 
 .hero-sub {
   margin-top: 28px;
@@ -676,6 +676,48 @@ body.has-custom-cursor [data-cursor] { cursor: none; }
 .project-foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 16px; flex-wrap: wrap; padding-top: 20px; border-top: 1px solid var(--line); }
 .project-stack { display: flex; flex-wrap: wrap; gap: 7px; }
 .project-date { color: var(--text-3); font-size: 0.8rem; }
+.project-shots { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 20px 0 4px; }
+.project-shot {
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--surface);
+  cursor: zoom-in;
+  aspect-ratio: 16 / 10;
+  transition: border-color 0.3s var(--ease);
+}
+.project-shot img { width: 100%; height: 100%; object-fit: cover; object-position: top left; transition: transform 0.5s var(--ease); }
+.project-shot:hover { border-color: var(--teal); }
+.project-shot:hover img { transform: scale(1.04); }
+
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  background: rgba(4, 7, 13, 0.88);
+  backdrop-filter: blur(6px);
+  cursor: zoom-out;
+}
+.lightbox figure { max-width: min(1200px, 100%); }
+.lightbox img { max-height: 80vh; width: auto; max-width: 100%; margin: 0 auto; border-radius: var(--radius-sm); box-shadow: var(--shadow); }
+.lightbox figcaption { margin-top: 14px; text-align: center; font-size: 0.8rem; color: var(--text-2); }
+.lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--text);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
 .project-links { margin-top: 20px; display: flex; flex-wrap: wrap; gap: 12px; }
 /* Live GitHub feed */
 .gh-feed { margin-top: 56px; }

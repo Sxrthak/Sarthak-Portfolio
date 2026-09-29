@@ -86,6 +86,18 @@ export const projects = [
     ],
     metric: { big: 'Live', small: 'at gapinfly.in' },
     live: 'https://gapinfly.in',
+    shots: [
+      {
+        src: './projects/gapinfly-home.webp',
+        alt: 'GapInfly landing page with an interactive skill-picker',
+        caption: 'Landing page — gapinfly.in',
+      },
+      {
+        src: './projects/gapinfly-product.webp',
+        alt: 'GapInfly product UI: GapScore dashboard, AI mock-interview scoring, and a personalised roadmap',
+        caption: 'GapScore, AI mock interview and roadmap — product UI with sample data',
+      },
+    ],
   },
   {
     id: 'devops-platform',

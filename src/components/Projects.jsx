@@ -1,4 +1,5 @@
-import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
 import { projects } from '../data'
 import Reveal from './Reveal'
 import TiltCard from './TiltCard'
@@ -6,6 +7,15 @@ import Icon from './Icons'
 import GitHubFeed from './GitHubFeed'
 
 export default function Projects() {
+  const [open, setOpen] = useState(null) // the screenshot shown full-size
+
+  useEffect(() => {
+    if (!open) return
+    const onKey = (e) => e.key === 'Escape' && setOpen(null)
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [open])
+
   return (
     <section id="projects" className="section">
       <div className="container">
@@ -33,6 +43,22 @@ export default function Projects() {
 
                 <h3 className="project-title">{p.title}</h3>
                 <p className="project-headline">{p.headline}</p>
+
+                {p.shots && (
+                  <div className="project-shots">
+                    {p.shots.map((shot) => (
+                      <button
+                        key={shot.src}
+                        className="project-shot"
+                        onClick={() => setOpen(shot)}
+                        aria-label={`Enlarge: ${shot.alt}`}
+                        data-cursor
+                      >
+                        <img src={shot.src} alt={shot.alt} loading="lazy" width="1440" height="900" />
+                      </button>
+                    ))}
+                  </div>
+                )}
 
                 <ul className="project-points">
                   {p.points.map((pt, i) => (
@@ -84,6 +110,35 @@ export default function Projects() {
           </a>
         </Reveal>
       </div>
+
+      {/* Rendered outside the tilt cards: a transformed ancestor would trap position: fixed. */}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            className="lightbox"
+            role="dialog"
+            aria-modal="true"
+            aria-label={open.alt}
+            onClick={() => setOpen(null)}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.figure
+              initial={{ scale: 0.96, y: 12 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.96, y: 12 }}
+              transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+            >
+              <img src={open.src} alt={open.alt} />
+              <figcaption className="mono">{open.caption}</figcaption>
+            </motion.figure>
+            <button className="lightbox-close mono" onClick={() => setOpen(null)} autoFocus>
+              close ✕
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   )
 }

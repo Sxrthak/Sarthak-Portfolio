@@ -1,10 +1,13 @@
+import { Fragment } from 'react'
 import { motion } from 'framer-motion'
 import { profile } from '../data'
 import Icon from './Icons'
 import Magnetic from './Magnetic'
 import PipelineDiagram from './PipelineDiagram'
 
-const headline = ['Cloud', 'infrastructure,', 'shipped', 'as', 'code.']
+const headline = ['Full-stack', 'products,', 'and', 'the', 'cloud', 'they', 'run', 'on.']
+const gradientFrom = 4 // "cloud they run on." gets the gradient
+const breakAfter = 1 // desktop line break after "products,"
 
 const wordVariant = {
   hidden: { opacity: 0, y: '0.6em', rotateX: -40 },
@@ -34,17 +37,20 @@ export default function Hero() {
 
         <h1 className="hero-title">
           {headline.map((w, i) => (
-            <span className="hero-word" key={i}>
-              <motion.span
-                custom={i}
-                variants={wordVariant}
-                initial="hidden"
-                animate="show"
-                className={i === 3 || i === 4 ? 'text-grad' : ''}
-              >
-                {w}
-              </motion.span>
-            </span>
+            <Fragment key={i}>
+              <span className="hero-word">
+                <motion.span
+                  custom={i}
+                  variants={wordVariant}
+                  initial="hidden"
+                  animate="show"
+                  className={i >= gradientFrom ? 'text-grad' : ''}
+                >
+                  {w}
+                </motion.span>
+              </span>
+              {i === breakAfter && <br className="hero-br" />}
+            </Fragment>
           ))}
         </h1>
 
