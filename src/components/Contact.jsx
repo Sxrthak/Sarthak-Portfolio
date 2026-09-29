@@ -31,7 +31,7 @@ export default function Contact() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="contact-lead">
-              I'm looking for DevOps, Cloud Engineering, and Software Engineering internships.
+              I'm looking for full-time software and cloud engineering roles starting 2027.
               If that's you — let's talk.
             </p>
           </Reveal>

@@ -2,7 +2,7 @@
 
 [![CI](https://github.com/Sxrthak/Sarthak-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Sxrthak/Sarthak-Portfolio/actions/workflows/ci.yml)
 
-A premium, animated portfolio for a Cloud & DevOps Engineer, built as a "living cloud infrastructure" experience.
+A premium, animated portfolio for a Full-Stack & Cloud Engineer, built as a "living cloud infrastructure" experience.
 
 **Stack:** React 18 · Vite · Framer Motion · hand-built SVG.
 

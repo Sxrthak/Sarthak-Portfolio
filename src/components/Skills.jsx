@@ -2,7 +2,7 @@ import { motion } from 'framer-motion'
 import { skillGroups } from '../data'
 import Reveal, { staggerParent, staggerItem } from './Reveal'
 
-const marquee = ['AWS', 'Terraform', 'Docker', 'Kubernetes', 'GitHub Actions', 'Python', 'boto3', 'Linux', 'CloudWatch', 'IAM', 'ECR', 'LocalStack', 'Bash', 'CI/CD', 'IaC']
+const marquee = ['Next.js', 'React', 'TypeScript', 'PostgreSQL', 'Supabase', 'AWS', 'Terraform', 'Docker', 'GitHub Actions', 'Python', 'Node.js', 'CloudWatch', 'IAM', 'Linux', 'CI/CD']
 
 export default function Skills() {
   return (

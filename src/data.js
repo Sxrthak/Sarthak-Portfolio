@@ -5,15 +5,15 @@ export const profile = {
   name: 'Sarthak Chaurasia',
   firstName: 'Sarthak',
   lastName: 'Chaurasia',
-  role: 'Cloud & DevOps Engineer',
+  role: 'Full-Stack & Cloud Engineer',
   tagline: 'I turn multi-step console setups into a single terraform apply.',
   location: 'India',
   email: 'sarthakchaurasia44@gmail.com',
   phone: '+91 9555046490',
   resume: './Sarthak_Chaurasia_Resume.pdf',
   summary:
-    'Final-year B.Tech CSE (Cloud Computing & Automation) student focused on cloud infrastructure and deployment automation. I provision AWS environments with Terraform, containerize services with Docker, and run CI/CD pipelines through GitHub Actions on Linux — backed by Python and boto3 scripting.',
-  status: 'Open to DevOps / Cloud / Software Engineering internships',
+    'Final-year B.Tech CSE (Cloud Computing & Automation) student who builds full-stack web products and the cloud infrastructure they run on. I built and launched GapInfly, a live AI career platform on Next.js, React, TypeScript and Supabase, and delivered multi-environment AWS infrastructure with Terraform, Docker and GitHub Actions as a Cloud Engineer Intern.',
+  status: 'Open to full-time software & cloud engineering roles from 2027',
   links: {
     github: 'https://github.com/Sxrthak',
     linkedin: 'https://www.linkedin.com/in/sarthak-chaurasia-25793a23a/',
@@ -24,35 +24,35 @@ export const profile = {
 // Headline metrics — used for the animated counters.
 export const metrics = [
   { value: 8, suffix: '', label: 'Services containerized', sub: 'shipped on every merge to main' },
-  { value: 75, suffix: '%', label: 'Faster deploys', sub: 'manual release → one pipeline' },
+  { value: 3, suffix: '', label: 'AWS environments', sub: 'rebuildable from Terraform' },
   { value: 900, suffix: '+', label: 'AWS exam score', sub: 'out of 1000, both exams' },
   { value: 15, suffix: '+', label: 'CloudWatch alarms', sub: 'on CPU & HTTP error rates' },
 ]
 
 export const skillGroups = [
   {
-    id: 'cloud',
-    title: 'Cloud Platforms',
-    accent: 'amber',
-    items: ['AWS EC2', 'S3', 'VPC', 'IAM', 'ECR', 'EBS', 'Elastic IP', 'CloudWatch', 'AWS CLI', 'GCP'],
-  },
-  {
-    id: 'infra',
-    title: 'Infrastructure & Containers',
-    accent: 'teal',
-    items: ['Terraform', 'Docker', 'Kubernetes', 'LocalStack', 'Infrastructure as Code'],
-  },
-  {
-    id: 'cicd',
-    title: 'CI/CD & Version Control',
-    accent: 'violet',
-    items: ['GitHub Actions', 'Git', 'GitHub', 'CI/CD Pipelines', 'REST APIs'],
-  },
-  {
     id: 'langs',
-    title: 'Languages & Systems',
+    title: 'Languages',
     accent: 'amber',
-    items: ['Python', 'boto3', 'Bash', 'SQL', 'Linux', 'Operating Systems', 'Computer Networks', 'DBMS'],
+    items: ['Python', 'TypeScript', 'JavaScript', 'SQL', 'Bash', 'C++'],
+  },
+  {
+    id: 'frontend',
+    title: 'Frontend',
+    accent: 'teal',
+    items: ['React', 'Next.js (App Router)', 'Tailwind CSS', 'Framer Motion', 'HTML/CSS'],
+  },
+  {
+    id: 'backend',
+    title: 'Backend & Data',
+    accent: 'violet',
+    items: ['REST APIs', 'Node.js (Express)', 'Next.js Route Handlers', 'FastAPI', 'PostgreSQL', 'Supabase (Auth, Storage, RLS)', 'LLM APIs (Gemini, Claude, OpenAI)'],
+  },
+  {
+    id: 'cloud',
+    title: 'Cloud & DevOps',
+    accent: 'amber',
+    items: ['AWS (EC2, S3, VPC, IAM, ECR, EBS, CloudWatch)', 'Terraform', 'Docker', 'GitHub Actions', 'CI/CD', 'Vercel', 'Linux', 'Git', 'Kubernetes (familiar)', 'GCP (familiar)'],
   },
 ]
 
@@ -66,7 +66,6 @@ export const experience = [
       'Provisioned 3 AWS environments spanning EC2, VPC, ECR, and IAM through version-controlled Terraform, cutting a multi-step console setup to a single apply and making any environment rebuildable from code.',
       'Containerized 8 backend services with Docker and shipped them through a 3-stage GitHub Actions workflow — build, push to ECR, and deploy — running automatically on every merge to main.',
       'Configured 15+ CloudWatch alarms and log groups on CPU and HTTP error-rate thresholds, surfacing failed deployments within minutes instead of during manual log review.',
-      'Resolved pipeline and container failures alongside senior engineers, and standardized Git branching and pull-request conventions later adopted across 6 team repositories.',
     ],
     tags: ['Terraform', 'Docker', 'GitHub Actions', 'CloudWatch', 'IAM'],
   },
@@ -75,15 +74,15 @@ export const experience = [
 export const projects = [
   {
     id: 'gapinfly',
-    title: 'GapInfly — AI Career-Readiness Platform',
+    title: 'GapInfly — AI Career Intelligence Platform',
     period: 'Sep 2026',
-    stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Gemini API', 'Vercel'],
+    stack: ['Next.js', 'React', 'TypeScript', 'Supabase', 'PostgreSQL', 'Tailwind', 'Vercel'],
     headline: 'A three-sided hiring platform for students, employers, and colleges — live in production.',
     points: [
-      'Built and shipped separate student, employer, and college placement-cell portals on Next.js and Supabase, with role-aware sign-in through email OTP, magic link, and Google OAuth.',
-      'Designed the GapScore engine, which grades each claimed skill with server-side questions, then generates a week-by-week learning roadmap and an adaptive AI mock interview on Gemini.',
-      'Kept every AI feature hybrid: a deterministic path always returns a result, and the model only enriches it — so a provider outage never breaks a user flow.',
-      'Locked down data with Postgres row-level security: per-user private document storage, a role-lock trigger, and approval checks so only verified employers and colleges can read student profiles.',
+      'Built and launched a three-sided career platform for students, employers and college placement officers — 22 App Router pages and 3 REST API routes in TypeScript, deployed on Vercel.',
+      'Designed a 6-table PostgreSQL schema on Supabase secured by 16 row-level security policies, so students read only their own data and employers only applications to their own jobs; added passwordless 6-digit OTP sign-in and document uploads via Supabase Storage.',
+      'Engineered a hybrid GapScore engine: a deterministic, weighted skill rubric across 10 target roles produces a consistent, explainable 0–100 score, and an optional LLM layer rewrites the summary and next actions.',
+      'Wrote a provider-agnostic LLM layer (Gemini, Claude, OpenAI) behind adaptive 5-question mock interviews and personalised roadmaps, with deterministic fallbacks so a model outage never breaks a user flow and roadmap links are never AI-generated.',
     ],
     metric: { big: 'Live', small: 'at gapinfly.in' },
     live: 'https://gapinfly.in',
@@ -109,13 +108,13 @@ export const projects = [
     title: 'Full DevOps Automation Platform',
     period: 'Jan 2026',
     stack: ['Docker', 'Terraform', 'GitHub Actions', 'EC2', 'ECR', 'IAM'],
-    headline: 'Cut deployment time by 75%.',
+    headline: 'A manual build-tag-push-SSH-deploy sequence, collapsed into one pipeline run.',
     points: [
-      'Containerized 10+ backend services and REST endpoints with Docker, published images to Amazon ECR, and deployed them to EC2 through GitHub Actions triggered on push.',
-      'Defined the full stack — VPC, security groups, EC2 instances, and IAM roles — in Terraform, reducing a multi-step manual release to a single pipeline run.',
-      'Moved every credential into GitHub Secrets and scoped IAM roles to least privilege, leaving 0 long-lived access keys in application code.',
+      'Defined the full stack — VPC, security groups, EC2 instances, and IAM roles and instance profiles — in Terraform, collapsing a manual build-tag-push-SSH-deploy sequence into a single pipeline run triggered on push.',
+      'Containerized a Node.js (Express) REST backend with Docker, published images to Amazon ECR, and deployed them to EC2 through a GitHub Actions workflow on every push.',
+      'Secured the delivery pipeline by moving every credential into GitHub Secrets and scoping IAM roles to least privilege, leaving 0 long-lived access keys in application code.',
     ],
-    metric: { big: '75%', small: 'faster releases' },
+    metric: { big: '0', small: 'long-lived access keys' },
     repo: 'https://github.com/Sxrthak/DevOps-Automation-Platform',
   },
 ]

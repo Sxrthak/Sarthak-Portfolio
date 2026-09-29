@@ -3,7 +3,7 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
-  "description": "Premium animated portfolio for Sarthak Chaurasia — Cloud & DevOps Engineer.",
+  "description": "Premium animated portfolio for Sarthak Chaurasia — Full-Stack & Cloud Engineer.",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
