@@ -86,22 +86,6 @@ export const projects = [
     ],
     metric: { big: 'Live', small: 'at gapinfly.in' },
     live: 'https://gapinfly.in',
-    featured: true,
-  },
-  {
-    id: 'cost-tool',
-    title: 'AWS Cost Optimization & Governance Tool',
-    period: 'May 2026',
-    stack: ['Python', 'boto3', 'Terraform', 'LocalStack', 'GitHub Actions'],
-    headline: 'Finds idle AWS resources and prices the waste before anything is deleted.',
-    points: [
-      'Built a Python scanner on boto3 that detects orphaned resources — unattached EBS volumes, stopped EC2 instances, and unassociated Elastic IPs — and estimates the monthly waste each one costs.',
-      'Split execution into dry-run and remediation modes, so every flagged resource is reviewed against a generated findings list before deletion — preventing teardown of in-use infrastructure.',
-      'Ran Terraform validation against LocalStack in a GitHub Actions pipeline on every push, catching misconfigurations pre-deploy at $0 in AWS charges.',
-      'Generated cost reports in JSON (for tooling) and Markdown (for review), breaking down waste by resource type and owner tag for a repeatable audit trail.',
-    ],
-    metric: { big: '$0', small: 'AWS spend to test' },
-    repo: 'https://github.com/Sxrthak/AWS-Cost-Optimization',
   },
   {
     id: 'devops-platform',

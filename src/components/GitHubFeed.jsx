@@ -6,8 +6,8 @@ import Icon from './Icons'
 
 const USER = profile.links.github.split('/').filter(Boolean).pop()
 const CACHE_KEY = 'gh-repos'
-// Repos that aren't portfolio projects: the profile README and DSA practice.
-const HIDE = new Set([USER, 'DSA-C-'].map((n) => n.toLowerCase()))
+// Repos kept off the portfolio: the profile README, DSA practice, and the retired cost tool.
+const HIDE = new Set([USER, 'DSA-C-', 'AWS-Cost-Optimization'].map((n) => n.toLowerCase()))
 
 function timeAgo(iso) {
   const days = Math.floor((Date.now() - new Date(iso)) / 86400000)

@@ -16,14 +16,14 @@ export default function Projects() {
           </Reveal>
           <Reveal delay={0.1}>
             <p className="section-lead">
-              Built end-to-end — from a live product to the pipelines and scanners behind it. The code is one click away.
+              Built end-to-end — from a live product to the pipeline that ships it. The code is one click away.
             </p>
           </Reveal>
         </div>
 
         <div className="projects-grid">
           {projects.map((p, idx) => (
-            <Reveal key={p.id} delay={idx * 0.08} className={p.featured ? 'project-featured' : undefined}>
+            <Reveal key={p.id} delay={idx * 0.08}>
               <TiltCard className="project-card" data-cursor>
                 <div className="project-index mono">0{idx + 1}</div>
                 <div className="project-metric">
