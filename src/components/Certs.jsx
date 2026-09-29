@@ -46,8 +46,8 @@ export default function Certs() {
                   <span className="cert-dot">·</span>
                   <span>{c.date}</span>
                 </div>
+                {c.score && <div className="cert-score">{c.score}</div>}
               </div>
-              {c.score && <div className="cert-score">{c.score}</div>}
               <Icon.arrowUpRight width={16} height={16} className="cert-arrow" />
             </motion.a>
           ))}

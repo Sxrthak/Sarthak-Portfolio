@@ -11,6 +11,7 @@ import Skills from './components/Skills'
 import Experience from './components/Experience'
 import Projects from './components/Projects'
 import Certs from './components/Certs'
+import Terminal from './components/Terminal'
 import Contact from './components/Contact'
 
 export default function App() {
@@ -37,6 +38,7 @@ export default function App() {
             <Experience />
             <Projects />
             <Certs />
+            <Terminal />
             <Contact />
           </main>
         </>

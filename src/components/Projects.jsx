@@ -3,6 +3,7 @@ import { projects } from '../data'
 import Reveal from './Reveal'
 import TiltCard from './TiltCard'
 import Icon from './Icons'
+import GitHubFeed from './GitHubFeed'
 
 export default function Projects() {
   return (
@@ -11,18 +12,18 @@ export default function Projects() {
         <div className="section-head">
           <Reveal><span className="eyebrow">04 — Selected work</span></Reveal>
           <Reveal delay={0.05}>
-            <h2 className="section-title">Projects that paid for themselves</h2>
+            <h2 className="section-title">Things I've built and shipped</h2>
           </Reveal>
           <Reveal delay={0.1}>
             <p className="section-lead">
-              Infrastructure and automation built end-to-end — from the boto3 scanner to the pipeline that ships it.
+              Built end-to-end — from a live product to the pipelines and scanners behind it. The code is one click away.
             </p>
           </Reveal>
         </div>
 
         <div className="projects-grid">
           {projects.map((p, idx) => (
-            <Reveal key={p.id} delay={idx * 0.08}>
+            <Reveal key={p.id} delay={idx * 0.08} className={p.featured ? 'project-featured' : undefined}>
               <TiltCard className="project-card" data-cursor>
                 <div className="project-index mono">0{idx + 1}</div>
                 <div className="project-metric">
@@ -50,10 +51,30 @@ export default function Projects() {
                   </div>
                   <span className="project-date mono">{p.period}</span>
                 </div>
+
+                {(p.repo || p.live) && (
+                  <div className="project-links">
+                    {p.live && (
+                      <a href={p.live} target="_blank" rel="noreferrer" className="link-arrow" data-cursor>
+                        <span>Visit live site</span>
+                        <Icon.arrowUpRight width={16} height={16} />
+                      </a>
+                    )}
+                    {p.repo && (
+                      <a href={p.repo} target="_blank" rel="noreferrer" className="link-arrow" data-cursor>
+                        <Icon.github width={16} height={16} />
+                        <span>View code</span>
+                        <Icon.arrowUpRight width={16} height={16} />
+                      </a>
+                    )}
+                  </div>
+                )}
               </TiltCard>
             </Reveal>
           ))}
         </div>
+
+        <GitHubFeed />
 
         <Reveal delay={0.1} className="projects-cta">
           <a href="https://github.com/Sxrthak" target="_blank" rel="noreferrer" className="link-arrow" data-cursor>

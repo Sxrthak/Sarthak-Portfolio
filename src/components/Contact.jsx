@@ -23,7 +23,7 @@ export default function Contact() {
       <div className="container">
         <div className="contact-card">
           <div className="contact-glow" aria-hidden="true" />
-          <Reveal><span className="eyebrow">06 — Let's build</span></Reveal>
+          <Reveal><span className="eyebrow">07 — Let's build</span></Reveal>
           <Reveal delay={0.05}>
             <h2 className="contact-title">
               Got infrastructure that should <span className="text-grad">deploy itself</span>?
@@ -68,7 +68,7 @@ export default function Contact() {
             {profile.name}
           </div>
           <p className="footer-note mono">
-            Built with React &amp; Framer Motion · {new Date().getFullYear()}
+            Built with React &amp; Framer Motion · CI on GitHub Actions · {new Date().getFullYear()}
           </p>
           <button className="footer-top" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} data-cursor>
             back to top ↑

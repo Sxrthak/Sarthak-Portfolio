@@ -11,6 +11,7 @@ const items = [
   { id: 'experience', label: 'Experience' },
   { id: 'projects', label: 'Projects' },
   { id: 'certs', label: 'Credentials' },
+  { id: 'shell', label: 'Shell' },
   { id: 'contact', label: 'Contact' },
 ]
 const ids = items.map((i) => i.id)

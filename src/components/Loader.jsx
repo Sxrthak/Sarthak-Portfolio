@@ -11,18 +11,31 @@ const lines = [
   '$ ./launch portfolio --env=prod',
 ]
 
+// Only play the boot sequence on the first page load of a browser session.
+// Read once at module load so React StrictMode's double effect can't skip it.
+const seenThisSession = (() => {
+  try {
+    const seen = sessionStorage.getItem('booted') === '1'
+    sessionStorage.setItem('booted', '1')
+    return seen
+  } catch {
+    return false
+  }
+})()
+
 /**
  * A short, skippable boot sequence themed as a terraform apply.
  * Calls onDone after the sequence (or immediately for reduced motion).
  */
 export default function Loader({ onDone }) {
-  const [visible, setVisible] = useState(true)
+  const [visible, setVisible] = useState(!seenThisSession)
   const [shown, setShown] = useState(0)
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    if (reduced) {
-      finish()
+    if (reduced || seenThisSession) {
+      setVisible(false)
+      onDone?.()
       return
     }
     let i = 0

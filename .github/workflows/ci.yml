@@ -1,0 +1,29 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Check every file the page links to is in the build
+        run: |
+          for f in og-image.png favicon.svg Sarthak_Chaurasia_Resume.pdf; do
+            test -f "dist/$f" || { echo "::error::dist/$f is missing"; exit 1; }
+          done

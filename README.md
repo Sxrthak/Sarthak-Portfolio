@@ -1,5 +1,7 @@
 # Sarthak Chaurasia — Portfolio
 
+[![CI](https://github.com/Sxrthak/Sarthak-Portfolio/actions/workflows/ci.yml/badge.svg)](https://github.com/Sxrthak/Sarthak-Portfolio/actions/workflows/ci.yml)
+
 A premium, animated portfolio for a Cloud & DevOps Engineer, built as a "living cloud infrastructure" experience.
 
 **Stack:** React 18 · Vite · Framer Motion · hand-built SVG.
@@ -10,6 +12,10 @@ A premium, animated portfolio for a Cloud & DevOps Engineer, built as a "living 
 - **Terraform-apply boot loader** — a short, skippable boot sequence on first load.
 - **Custom cursor** with a lagging ring that reacts to interactive elements (pointer-fine devices only).
 - **Magnetic buttons**, **3D tilt project cards** with a moving glare, **animated metric counters**, a scroll progress bar, an infinite skills marquee, and an animated experience timeline.
+- **Interactive terminal** — type `help`, `projects`, `skills`, `resume`… with tab-completion and history; Ctrl/⌘+K jumps to it.
+- **Live GitHub feed** — recently pushed public repos, fetched from the GitHub API (hidden if the API is unavailable).
+- **Link previews & SEO** — Open Graph image (`public/og-image.png`) and schema.org Person data in `index.html`.
+- **CI** — GitHub Actions builds every push and pull request.
 - **Fully responsive** with an adaptive mobile menu, and **`prefers-reduced-motion`** respected throughout.
 
 ## Run it
@@ -33,11 +39,6 @@ The built site lands in `dist/` — deploy that folder to Vercel, Netlify, GitHu
 ## Editing your content
 
 Everything lives in [`src/data.js`](src/data.js) — name, summary, skills, experience, projects, certifications, links.
-
-**Before you publish, update these placeholders in `src/data.js`:**
-
-- `links.linkedin` — your real LinkedIn profile URL
-- `links.credly` — your real Credly profile URL
 
 Your résumé PDF is served from `public/Sarthak_Chaurasia_Resume.pdf` (the "Résumé" buttons download it). Replace that file to update the download.
 

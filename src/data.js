@@ -17,16 +17,16 @@ export const profile = {
   links: {
     github: 'https://github.com/Sxrthak',
     linkedin: 'https://www.linkedin.com/in/sarthak-chaurasia-25793a23a/',
-    credly: 'https://www.credly.com/earner/dashboard/home',
+    credly: 'https://www.credly.com/users/sarthak-chaurasia.6e1924bd',
   },
 }
 
 // Headline metrics — used for the animated counters.
 export const metrics = [
-  { value: 50, suffix: '%', label: 'Cloud spend cut', sub: 'idle EC2 & EBS reclaimed' },
+  { value: 8, suffix: '', label: 'Services containerized', sub: 'shipped on every merge to main' },
   { value: 75, suffix: '%', label: 'Faster deploys', sub: 'manual release → one pipeline' },
   { value: 900, suffix: '+', label: 'AWS exam score', sub: 'out of 1000, both exams' },
-  { value: 0, prefix: '', suffix: '', label: 'Long-lived keys', sub: 'in application code' },
+  { value: 15, suffix: '+', label: 'CloudWatch alarms', sub: 'on CPU & HTTP error rates' },
 ]
 
 export const skillGroups = [
@@ -74,18 +74,35 @@ export const experience = [
 
 export const projects = [
   {
+    id: 'gapinfly',
+    title: 'GapInfly — AI Career-Readiness Platform',
+    period: 'Sep 2026',
+    stack: ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Gemini API', 'Vercel'],
+    headline: 'A three-sided hiring platform for students, employers, and colleges — live in production.',
+    points: [
+      'Built and shipped separate student, employer, and college placement-cell portals on Next.js and Supabase, with role-aware sign-in through email OTP, magic link, and Google OAuth.',
+      'Designed the GapScore engine, which grades each claimed skill with server-side questions, then generates a week-by-week learning roadmap and an adaptive AI mock interview on Gemini.',
+      'Kept every AI feature hybrid: a deterministic path always returns a result, and the model only enriches it — so a provider outage never breaks a user flow.',
+      'Locked down data with Postgres row-level security: per-user private document storage, a role-lock trigger, and approval checks so only verified employers and colleges can read student profiles.',
+    ],
+    metric: { big: 'Live', small: 'at gapinfly.in' },
+    live: 'https://gapinfly.in',
+    featured: true,
+  },
+  {
     id: 'cost-tool',
     title: 'AWS Cost Optimization & Governance Tool',
     period: 'May 2026',
     stack: ['Python', 'boto3', 'Terraform', 'LocalStack', 'GitHub Actions'],
-    headline: 'Cut monthly EC2 & EBS spend by 50%.',
+    headline: 'Finds idle AWS resources and prices the waste before anything is deleted.',
     points: [
-      'Built a Python scanner on boto3 that detects idle and orphaned resources across 4 categories — unattached EBS volumes, stopped EC2 instances, unassociated Elastic IPs, and untagged assets.',
+      'Built a Python scanner on boto3 that detects orphaned resources — unattached EBS volumes, stopped EC2 instances, and unassociated Elastic IPs — and estimates the monthly waste each one costs.',
       'Split execution into dry-run and remediation modes, so every flagged resource is reviewed against a generated findings list before deletion — preventing teardown of in-use infrastructure.',
       'Ran Terraform validation against LocalStack in a GitHub Actions pipeline on every push, catching misconfigurations pre-deploy at $0 in AWS charges.',
       'Generated cost reports in JSON (for tooling) and Markdown (for review), breaking down waste by resource type and owner tag for a repeatable audit trail.',
     ],
-    metric: { big: '50%', small: 'spend reduced' },
+    metric: { big: '$0', small: 'AWS spend to test' },
+    repo: 'https://github.com/Sxrthak/AWS-Cost-Optimization',
   },
   {
     id: 'devops-platform',
@@ -99,6 +116,7 @@ export const projects = [
       'Moved every credential into GitHub Secrets and scoped IAM roles to least privilege, leaving 0 long-lived access keys in application code.',
     ],
     metric: { big: '75%', small: 'faster releases' },
+    repo: 'https://github.com/Sxrthak/DevOps-Automation-Platform',
   },
 ]
 
